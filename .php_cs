@@ -1,10 +1,10 @@
 <?php
 
 $header = <<<EOF
-PayPal plugin for PHP merchant library
+WebMoney plugin for PHP merchant library
 
-@link      https://github.com/hiqdev/php-merchant-paypal
-@package   php-merchant-paypal
+@link      https://github.com/hiqdev/php-merchant-webmoney
+@package   php-merchant-webmoney
 @license   BSD-3-Clause
 @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
 EOF;
