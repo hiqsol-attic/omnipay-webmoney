@@ -14,10 +14,9 @@ namespace hiqdev\php\merchant\webmoney;
 class Merchant extends \hiqdev\php\merchant\webmoney\Merchant
 {
     protected static $_defaults = [
-        'name'        => 'webmoney',
-        'label'       => 'WebMoney',
-        'actionUrl'   => 'https://merchant.webmoney.ru/lmi/payment.asp',
-        'confirmText' => 'OK',
+        'name'      => 'webmoney',
+        'label'     => 'WebMoney',
+        'actionUrl' => 'https://merchant.webmoney.ru/lmi/payment.asp',
     ];
 
     public function getInputs()
@@ -36,5 +35,31 @@ class Merchant extends \hiqdev\php\merchant\webmoney\Merchant
 
     public function validateConfirmation($data)
     {
+        if ($data['LMI_PREREQUEST']) {
+            die(json_encode('YES')); /// this is preliminary request
+        }
+        if ($data['LMI_MODE']) {
+            return "Wrong LMI MODE:$data[LMI_MODE]";
+        }
+        $sum = $this->checkMoney($data['LMI_PAYMENT_AMOUNT']);
+        if (!$sum) {
+            return [];
+        }
+        $str = implode('', [
+            $this->purse, $data['LMI_PAYMENT_AMOUNT'], $data['LMI_PAYMENT_NO'], $data['LMI_MODE'], $data['LMI_SYS_INVS_NO'],
+            $data['LMI_SYS_TRANS_NO'], $data['LMI_SYS_TRANS_DATE'], $this->key, $data['LMI_PAYER_PURSE'], $data['LMI_PAYER_WM'],
+        ]);
+        $hash = strtolower($data['LMI_HASH']);
+        if ($hash !== md5($str) && $hash !== hash('sha256', $str)) {
+            return 'Wrong hash';
+        }
+        $this->mset([
+            'from' => "$data[LMI_PAYER_PURSE]/$data[LMI_PAYER_WM]",
+            'txn'  => "$data[LMI_SYS_INVS_NO]/$data[LMI_SYS_TRANS_NO]",
+            'sum'  => $sum,
+            'time' => $this->formatDatetime("$data[LMI_SYS_TRANS_DATE] Europe/Moscow"),
+        ]);
+
+        return;
     }
 }
