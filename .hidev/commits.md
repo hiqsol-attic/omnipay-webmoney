@@ -4,6 +4,7 @@ hiqdev/php-merchant-webmoney commits history
 ## Under development
 
 - Added basics
+    - b8e74b8 2015-10-30 changed: redone to 'system' <- 'name' (sol@hiqdev.com)
     - 193005f 2015-10-30 fixed typo (sol@hiqdev.com)
     - f390e65 2015-10-23 php-cs-fixed (sol@hiqdev.com)
     - 744a3c4 2015-10-22 php-cs-fixed (sol@hiqdev.com)
