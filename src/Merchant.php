@@ -14,7 +14,7 @@ namespace hiqdev\php\merchant\webmoney;
 class Merchant extends \hiqdev\php\merchant\Merchant
 {
     protected static $_defaults = [
-        'name'      => 'webmoney',
+        'system'    => 'webmoney',
         'label'     => 'WebMoney',
         'actionUrl' => 'https://merchant.webmoney.ru/lmi/payment.asp',
     ];
