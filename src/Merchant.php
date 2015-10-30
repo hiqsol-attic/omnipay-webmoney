@@ -11,7 +11,7 @@
 
 namespace hiqdev\php\merchant\webmoney;
 
-class Merchant extends \hiqdev\php\merchant\webmoney\Merchant
+class Merchant extends \hiqdev\php\merchant\Merchant
 {
     protected static $_defaults = [
         'name'      => 'webmoney',
