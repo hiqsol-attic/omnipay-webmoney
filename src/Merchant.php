@@ -41,13 +41,13 @@ class Merchant extends \hiqdev\php\merchant\Merchant
         if ($data['LMI_MODE']) {
             return "Wrong LMI MODE:$data[LMI_MODE]";
         }
-        $sum = $this->checkMoney($data['LMI_PAYMENT_AMOUNT']);
+        $sum = $this->validateMoney($data['LMI_PAYMENT_AMOUNT']);
         if (!$sum) {
-            return [];
+            return "Wrong sum:$data[LMI_PAYMENT_AMOUNT]";
         }
         $str = implode('', [
             $this->purse, $data['LMI_PAYMENT_AMOUNT'], $data['LMI_PAYMENT_NO'], $data['LMI_MODE'], $data['LMI_SYS_INVS_NO'],
-            $data['LMI_SYS_TRANS_NO'], $data['LMI_SYS_TRANS_DATE'], $this->key, $data['LMI_PAYER_PURSE'], $data['LMI_PAYER_WM'],
+            $data['LMI_SYS_TRANS_NO'], $data['LMI_SYS_TRANS_DATE'], $this->_secret, $data['LMI_PAYER_PURSE'], $data['LMI_PAYER_WM'],
         ]);
         $hash = strtolower($data['LMI_HASH']);
         if ($hash !== md5($str) && $hash !== hash('sha256', $str)) {
