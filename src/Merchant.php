@@ -22,15 +22,32 @@ class Merchant extends \hiqdev\php\merchant\Merchant
     public function getInputs()
     {
         return [
-            'LMI_PAYMENT_DESC'   => $this->description,
+            'LMI_PAYMENT_DESC'   => $this->invoiceDescription,
+            'LMI_PAYMENT_AMOUNT' => $this->invoiceTotal,
             'LMI_PAYEE_PURSE'    => $this->purse,
-            'LMI_PAYMENT_AMOUNT' => $this->total,
             'LMI_RESULT_URL'     => $this->confirmUrl,
             'LMI_SUCCESS_URL'    => $this->successUrl,
             'LMI_FAIL_URL'       => $this->failureUrl,
             'LMI_SUCCESS_METHOD' => 1,
             'LMI_FAIL_METHOD'    => 1,
         ];
+    }
+
+    static public $currenciesTable = [
+        'Z' => 'usd',
+        'E' => 'eur',
+        'R' => 'rub',
+        'U' => 'uah',
+        'B' => 'byr',
+        'V' => 'vnd',
+        'G' => 'gold',
+        'X' => 'bitcoin',
+    ];
+
+    public function detectCurrency($purse)
+    {
+        $symbol = strtoupper($purse[0]);
+        return self::$currenciesTable[$symbol];
     }
 
     public function validateConfirmation($data)
@@ -41,9 +58,9 @@ class Merchant extends \hiqdev\php\merchant\Merchant
         if ($data['LMI_MODE']) {
             return "Wrong LMI MODE:$data[LMI_MODE]";
         }
-        $sum = $this->validateMoney($data['LMI_PAYMENT_AMOUNT']);
-        if (!$sum) {
-            return "Wrong sum:$data[LMI_PAYMENT_AMOUNT]";
+        $total = $this->validateMoney($data['LMI_PAYMENT_AMOUNT']);
+        if (!$total) {
+            return "Wrong total:$data[LMI_PAYMENT_AMOUNT]";
         }
         $str = implode('', [
             $this->purse, $data['LMI_PAYMENT_AMOUNT'], $data['LMI_PAYMENT_NO'], $data['LMI_MODE'], $data['LMI_SYS_INVS_NO'],
@@ -54,10 +71,10 @@ class Merchant extends \hiqdev\php\merchant\Merchant
             return 'Wrong hash';
         }
         $this->mset([
-            'from' => "$data[LMI_PAYER_PURSE]/$data[LMI_PAYER_WM]",
-            'txn'  => "$data[LMI_SYS_INVS_NO]/$data[LMI_SYS_TRANS_NO]",
-            'sum'  => $sum,
-            'time' => $this->formatDatetime("$data[LMI_SYS_TRANS_DATE] Europe/Moscow"),
+            'paymentTotal' => $total,
+            'paymentId'    => "$data[LMI_SYS_INVS_NO]/$data[LMI_SYS_TRANS_NO]",
+            'paymentFrom'  => "$data[LMI_PAYER_PURSE]/$data[LMI_PAYER_WM]",
+            'paymentTime'  => $this->formatDatetime("$data[LMI_SYS_TRANS_DATE] Europe/Moscow"),
         ]);
 
         return;
