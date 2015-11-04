@@ -3,6 +3,9 @@ hiqdev/php-merchant-webmoney commits history
 
 ## Under development
 
+- Redone with omnipay
+    - 8d92833 2015-11-04 + require dercoder/omnipay-webmoney (sol@hiqdev.com)
+    - a1b7f79 2015-11-04 redoing NOT FINISHED (sol@hiqdev.com)
 - Added basics
     - 38217f9 2015-11-04 php-cs-fixed (sol@hiqdev.com)
     - 5dde037 2015-11-04 + test data for webmoney (sol@hiqdev.com)

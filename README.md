@@ -5,6 +5,7 @@ WebMoney plugin for PHP merchant library
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/php-merchant-webmoney/v/stable)](//packagist.org/packages/hiqdev/php-merchant-webmoney)
 [![Total Downloads](https://poser.pugx.org/hiqdev/php-merchant-webmoney/downloads)](//packagist.org/packages/hiqdev/php-merchant-webmoney)
+[![Dependency Status](https://www.versioneye.com/php/hiqdev:php-merchant-webmoney/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:php-merchant-webmoney/dev-master)
 
 ## Installation
 
