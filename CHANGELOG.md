@@ -1,5 +1,5 @@
-hiqdev/php-merchant-webmoney changelog
---------------------------------------
+hiqdev/unified-omnipay-webmoney changelog
+-----------------------------------------
 
 ## Under development
 

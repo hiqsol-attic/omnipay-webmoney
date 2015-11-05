@@ -1,11 +1,12 @@
 package:
-    name:           php-merchant-webmoney
-    namespace:      hiqdev\php\merchant\webmoney
-    title:          WebMoney plugin for PHP merchant library
+    name:           unified-omnipay-webmoney
+    namespace:      UnifiedOmnipay\WebMoney
+    title:          WebMoney driver for the Unified Omnipay PHP payment processing library
     type:           library
-    keywords:       php, webmoney, merchant
+    keywords:       php, webmoney, omnipay, unifiedomnipay, merchant, payment
     description:    |
-        [WebMoney](http://webmoney.ru/) plugin for [PHP merchant library](https://github.com/hiqdev/php-merchant).
+        [WebMoney](http://webmoney.ru/) driver for the [Unified](https://github.com/hiqdev/unified-omnipay)
+        [Omnipay](http://omnipay.thephpleague.com/) PHP payment processing library.
 
 require:
     hiqdev/hidev-config:        "*"
