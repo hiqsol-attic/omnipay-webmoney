@@ -67,11 +67,6 @@ class CompletePurchaseResponse extends AbstractResponse
         return $this->data['LMI_PAYER_PURSE'] . '/' . $this->data['LMI_PAYER_WM'];
     }
 
-    public function getMerchantPurse()
-    {
-        return $this->data['LMI_PAYEE_PURSE'];
-    }
-
     public function getAmount()
     {
         return $this->data['LMI_PAYMENT_AMOUNT'];
