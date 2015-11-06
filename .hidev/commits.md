@@ -3,9 +3,10 @@ hiqdev/omnipay-webmoney commits history
 
 ## Under development
 
+- Redone to omnipay-webmoney
+    - 4f457ca 2015-11-06 redoing to omnipay-webmoney (sol@hiqdev.com)
     - 04dade8 2015-11-06 redoing to omnipay-webmoney (sol@hiqdev.com)
     - 9ca4649 2015-11-06 redoing to omnipay-webmoney (sol@hiqdev.com)
-- Redone to unified-omnipay-webmoney
     - c0361d8 2015-11-05 redoing to unified-omnipay-webmoney (sol@hiqdev.com)
     - 8d92833 2015-11-04 + require dercoder/omnipay-webmoney (sol@hiqdev.com)
     - a1b7f79 2015-11-04 redoing NOT FINISHED (sol@hiqdev.com)
