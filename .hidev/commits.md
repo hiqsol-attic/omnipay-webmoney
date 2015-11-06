@@ -4,6 +4,8 @@ hiqdev/omnipay-webmoney commits history
 ## Under development
 
 - Redone to omnipay-webmoney
+    - 364be93 2015-11-06 + proper defaults to gateway (sol@hiqdev.com)
+    - 7adde1f 2015-11-06 - get/setSecret, unified secret now IS secretKey (sol@hiqdev.com)
     - 1ad7bef 2015-11-06 improved docs (sol@hiqdev.com)
     - 4f457ca 2015-11-06 redoing to omnipay-webmoney (sol@hiqdev.com)
     - 04dade8 2015-11-06 redoing to omnipay-webmoney (sol@hiqdev.com)
