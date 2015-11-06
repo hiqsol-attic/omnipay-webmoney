@@ -60,28 +60,6 @@ class Gateway extends AbstractGateway
     }
 
     /**
-     * Get the unified secret.
-     *
-     * @return string secret key
-     */
-    public function getSecret()
-    {
-        return $this->getSecretKey();
-    }
-
-    /**
-     * Set the unified secret.
-     *
-     * @param string $value secret key
-     *
-     * @return self
-     */
-    public function setSecret($value)
-    {
-        return $this->setSecretKey($value);
-    }
-
-    /**
      * Get the merchant purse.
      *
      * @return string merchant purse
