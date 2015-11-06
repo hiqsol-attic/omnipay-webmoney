@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * WebMoney driver for the Omnipay PHP payment processing library
+ *
+ * @link      https://github.com/hiqdev/omnipay-webmoney
+ * @package   omnipay-webmoney
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2015, HiQDev (http://hiqdev.com/)
+ */
+
 namespace Omnipay\WebMoney\Message;
 
 use Omnipay\Common\Exception\InvalidRequestException;

@@ -1,5 +1,5 @@
-hiqdev/unified-omnipay-webmoney changelog
------------------------------------------
+hiqdev/omnipay-webmoney changelog
+---------------------------------
 
 ## Under development
 

@@ -1,10 +1,19 @@
 <?php
 
+/*
+ * WebMoney driver for the Omnipay PHP payment processing library
+ *
+ * @link      https://github.com/hiqdev/omnipay-webmoney
+ * @package   omnipay-webmoney
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2015, HiQDev (http://hiqdev.com/)
+ */
+
 namespace Omnipay\WebMoney\Message;
 
+use Omnipay\Common\Exception\InvalidResponseException;
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RequestInterface;
-use Omnipay\Common\Exception\InvalidResponseException;
 
 /**
  * WebMoney Complete Purchase Response.
@@ -15,7 +24,7 @@ class CompletePurchaseResponse extends AbstractResponse
     public function __construct(RequestInterface $request, $data)
     {
         $this->request = $request;
-        $this->data = $data;
+        $this->data    = $data;
 
         if ($this->getPrerequest()) {
             throw new InvalidResponseException('This is prerequest');
@@ -98,23 +107,23 @@ class CompletePurchaseResponse extends AbstractResponse
     /**
      * Calculate hash to verify transaction details.
      *
-     * @return string
-     *
      * @throws InvalidResponseException
+     *
+     * @return string
      */
     private function calculateHash()
     {
         $hashType = $this->getHashType();
 
-        if (!$hashType || $hashType == 'sign') {
+        if (!$hashType || $hashType === 'sign') {
             throw new InvalidResponseException("Invalid hash type: $hashType");
         }
 
         return strtoupper(hash($hashType,
-            $this->request->getMerchantPurse().
-            $this->data['LMI_PAYMENT_AMOUNT'] . $this->data['LMI_PAYMENT_NO'] . $this->data['LMI_MODE'].
-            $this->data['LMI_SYS_INVS_NO'] . $this->data['LMI_SYS_TRANS_NO'] . $this->data['LMI_SYS_TRANS_DATE'].
-            $this->request->getSecretkey().
+            $this->request->getMerchantPurse() .
+            $this->data['LMI_PAYMENT_AMOUNT'] . $this->data['LMI_PAYMENT_NO'] . $this->data['LMI_MODE'] .
+            $this->data['LMI_SYS_INVS_NO'] . $this->data['LMI_SYS_TRANS_NO'] . $this->data['LMI_SYS_TRANS_DATE'] .
+            $this->request->getSecretkey() .
             $this->data['LMI_PAYER_PURSE'] . $this->data['LMI_PAYER_WM']
         ));
     }

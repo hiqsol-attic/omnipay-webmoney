@@ -1,22 +1,21 @@
 {
-    "name": "hiqdev/unified-omnipay-webmoney",
+    "name": "hiqdev/omnipay-webmoney",
     "type": "library",
-    "description": "WebMoney driver for the Unified Omnipay PHP payment processing library",
+    "description": "WebMoney driver for the Omnipay PHP payment processing library",
     "keywords": [
         "php",
-        "webmoney",
         "omnipay",
-        "unifiedomnipay",
+        "webmoney",
         "merchant",
         "payment"
     ],
-    "homepage": "https://github.com/hiqdev/unified-omnipay-webmoney",
+    "homepage": "https://github.com/hiqdev/omnipay-webmoney",
     "license": "BSD-3-Clause",
     "support": {
         "email": "support@hiqdev.com",
-        "source": "https://github.com/hiqdev/unified-omnipay-webmoney",
-        "issues": "https://github.com/hiqdev/unified-omnipay-webmoney/issues",
-        "wiki": "https://github.com/hiqdev/unified-omnipay-webmoney/wiki",
+        "source": "https://github.com/hiqdev/omnipay-webmoney",
+        "issues": "https://github.com/hiqdev/omnipay-webmoney/issues",
+        "wiki": "https://github.com/hiqdev/omnipay-webmoney/wiki",
         "forum": "http://forum.hiqdev.com/"
     },
     "authors": [
@@ -46,12 +45,11 @@
         }
     ],
     "require": {
-        "hiqdev/unified-omnipay": "*",
-        "hiqdev/omnipay-webmoney": "*"
+        "omnipay/common": "*"
     },
     "autoload": {
         "psr-4": {
-            "UnifiedOmnipay\\WebMoney\\": "src"
+            "Omnipay\\WebMoney\\": "src"
         }
     }
 }

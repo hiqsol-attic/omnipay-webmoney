@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * WebMoney driver for the Omnipay PHP payment processing library
+ *
+ * @link      https://github.com/hiqdev/omnipay-webmoney
+ * @package   omnipay-webmoney
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2015, HiQDev (http://hiqdev.com/)
+ */
+
 namespace Omnipay\WebMoney\Message;
 
 /**
@@ -22,13 +31,12 @@ class CompletePurchaseRequest extends AbstractRequest
 
         $res = [];
         foreach ($this->httpRequest->request->all() as $k => $v) {
-            if (substr($k, 0, 4) == 'LMI_') {
+            if (substr($k, 0, 4) === 'LMI_') {
                 $res[$k] = $v;
             }
         }
 
         return $res;
-
     }
 
     /**

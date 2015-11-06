@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * WebMoney driver for the Omnipay PHP payment processing library
+ *
+ * @link      https://github.com/hiqdev/omnipay-webmoney
+ * @package   omnipay-webmoney
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2015, HiQDev (http://hiqdev.com/)
+ */
+
 namespace Omnipay\WebMoney\Message;
 
 /**
@@ -55,7 +64,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('secretKey', $key);
     }
 
-    static protected $_currencies = [
+    protected static $_currencies = [
         'Z' => 'USD',
         'E' => 'EUR',
         'R' => 'RUB',
@@ -73,5 +82,4 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     {
         return self::$_currencies[strtoupper($purse[0])];
     }
-
 }
