@@ -13,6 +13,10 @@ namespace Omnipay\WebMoney;
 
 use Omnipay\Common\AbstractGateway;
 
+/**
+ * Gateway for WebMoney Web Merchant Interface.
+ * https://wiki.wmtransfer.com/projects/webmoney/wiki/Web_Merchant_Interface.
+ */
 class Gateway extends AbstractGateway
 {
     /**

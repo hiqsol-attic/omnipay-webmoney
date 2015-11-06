@@ -17,7 +17,6 @@ use Omnipay\Common\Message\RequestInterface;
 
 /**
  * WebMoney Complete Purchase Response.
- * https://merchant.wmtransfer.com/conf/guide.asp.
  */
 class CompletePurchaseResponse extends AbstractResponse
 {

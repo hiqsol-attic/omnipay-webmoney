@@ -15,8 +15,7 @@ use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RedirectResponseInterface;
 
 /**
- * WebMoney Purchase Response
- * https://merchant.wmtransfer.com/conf/guide.asp.
+ * WebMoney Purchase Response.
  */
 class PurchaseResponse extends AbstractResponse implements RedirectResponseInterface
 {

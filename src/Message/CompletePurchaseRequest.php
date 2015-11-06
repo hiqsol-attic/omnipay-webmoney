@@ -12,8 +12,7 @@
 namespace Omnipay\WebMoney\Message;
 
 /**
- * WebMoney Complete Purchase Request
- * https://merchant.wmtransfer.com/conf/guide.asp.
+ * WebMoney Complete Purchase Request.
  */
 class CompletePurchaseRequest extends AbstractRequest
 {
