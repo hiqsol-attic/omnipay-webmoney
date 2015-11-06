@@ -1,9 +1,10 @@
 package:
     name:           omnipay-webmoney
     namespace:      Omnipay\WebMoney
-    header:         Omnipay: WebMoney
+    headline:       Omnipay: WebMoney
     title:          WebMoney driver for the Omnipay PHP payment processing library
     type:           library
+    license:        MIT
     keywords:       php, omnipay, webmoney, merchant, payment
     description:    |
         [Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
