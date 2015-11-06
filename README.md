@@ -1,7 +1,8 @@
 WebMoney driver for the Omnipay PHP payment processing library
 ==============================================================
 
-[WebMoney](http://webmoney.ru/) driver for the [Omnipay](http://omnipay.thephpleague.com/) PHP payment processing library.
+[WebMoney](http://webmoney.ru/) driver for the
+[Omnipay](http://omnipay.thephpleague.com/) PHP payment processing library.
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/omnipay-webmoney/v/stable)](//packagist.org/packages/hiqdev/omnipay-webmoney)
 [![Total Downloads](https://poser.pugx.org/hiqdev/omnipay-webmoney/downloads)](//packagist.org/packages/hiqdev/omnipay-webmoney)
@@ -31,8 +32,7 @@ The following gateway is provided by this package:
 
 * [WebMoney Web Merchant Interface](https://wiki.wmtransfer.com/projects/webmoney/wiki/Web_Merchant_Interface)
 
-For general usage instructions, please see the [Omnipay repository](https://github.com/omnipay/omnipay)
-and [Omnipay website](http://omnipay.thephpleague.com/).
+For general usage instructions, please see the main [Omnipay](https://github.com/omnipay/omnipay) repository.
 
 ## Support
 

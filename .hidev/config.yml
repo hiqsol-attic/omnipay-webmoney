@@ -5,7 +5,8 @@ package:
     type:           library
     keywords:       php, omnipay, webmoney, merchant, payment
     description:    |
-        [WebMoney](http://webmoney.ru/) driver for the [Omnipay](http://omnipay.thephpleague.com/) PHP payment processing library.
+        [WebMoney](http://webmoney.ru/) driver for the
+        [Omnipay](http://omnipay.thephpleague.com/) PHP payment processing library.
 
 require:
     hiqdev/hidev-config:        "*"
