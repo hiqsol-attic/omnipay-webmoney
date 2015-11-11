@@ -19,13 +19,8 @@ class PurchaseRequest extends AbstractRequest
     {
         $this->validate(
             'merchantPurse',
-            'amount',
-            'currency',
-            'description',
-            'transactionId',
-            'returnUrl',
-            'cancelUrl',
-            'notifyUrl'
+            'amount', 'currency', 'description',
+            'returnUrl', 'cancelUrl', 'notifyUrl'
         );
 
         if ($this->detectCurrency($this->getMerchantPurse()) !== $this->getCurrency()) {
