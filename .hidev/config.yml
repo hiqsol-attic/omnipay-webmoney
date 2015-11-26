@@ -12,5 +12,5 @@ package:
         This package implements [WebMoney](http://webmoney.ru/) support for Omnipay.
 
 require:
-    hiqdev/hidev-config:        "*"
-    hiqdev/hidev-config-php:    "*"
+    hiqdev/hidev-php:    "*"
+    hiqdev/hidev-hiqdev: "*"

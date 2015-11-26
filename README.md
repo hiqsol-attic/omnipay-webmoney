@@ -5,6 +5,7 @@ Omnipay: WebMoney
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/omnipay-webmoney/v/stable)](//packagist.org/packages/hiqdev/omnipay-webmoney)
 [![Total Downloads](https://poser.pugx.org/hiqdev/omnipay-webmoney/downloads)](//packagist.org/packages/hiqdev/omnipay-webmoney)
+[![Build Status](https://img.shields.io/travis/hiqdev/omnipay-webmoney.svg)](http://travis-ci.org/hiqdev/omnipay-webmoney)
 [![Dependency Status](https://www.versioneye.com/php/hiqdev:omnipay-webmoney/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:omnipay-webmoney/dev-master)
 
 [Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
@@ -17,7 +18,7 @@ The preferred way to install this library is through [composer](http://getcompos
 
 Either run
 
-```
+```sh
 php composer.phar require "hiqdev/omnipay-webmoney"
 ```
 
@@ -52,7 +53,7 @@ or better yet, fork the library and submit a pull request.
 
 ## License
 
-This project is released under the terms of the MIT [license](https://github.com/hiqdev/omnipay-webmoney/blob/master/LICENSE).
+This project is released under the terms of the MIT [license](LICENSE).
 Read more [here](http://choosealicense.com/licenses/mit).
 
 Copyright © 2015, HiQDev (http://hiqdev.com/)
