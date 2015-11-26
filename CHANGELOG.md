@@ -3,6 +3,7 @@ hiqdev/omnipay-webmoney changelog
 
 ## Under development
 
+- Added tests
 - Redone to omnipay-webmoney
 - Added basics
 

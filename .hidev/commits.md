@@ -3,6 +3,9 @@ hiqdev/omnipay-webmoney commits history
 
 ## Under development
 
+- Added tests
+    - 02f2538 2015-11-26 adding tests (not finished) (sol@hiqdev.com)
+    - 9749020 2015-11-26 + get/set for WebMoney ID, SSL file and SSL key (sol@hiqdev.com)
 - Redone to omnipay-webmoney
     - 9d2b9ec 2015-11-11 php-cs-fixed (sol@hiqdev.com)
     - 5a17383 2015-11-11 + getAssetDir() (sol@hiqdev.com)
@@ -19,7 +22,7 @@ hiqdev/omnipay-webmoney commits history
 - Added basics
     - 38217f9 2015-11-04 php-cs-fixed (sol@hiqdev.com)
     - 5dde037 2015-11-04 + test data for webmoney (sol@hiqdev.com)
-    - a2c3636 2015-10-31 fixed '_secret' <- 'secret' (sol@hiqdev.com)
+    - a2c3636 2015-10-31 fixed `_secret` <- `secret` (sol@hiqdev.com)
     - b8e74b8 2015-10-30 changed: redone to 'system' <- 'name' (sol@hiqdev.com)
     - 193005f 2015-10-30 fixed typo (sol@hiqdev.com)
     - f390e65 2015-10-23 php-cs-fixed (sol@hiqdev.com)
