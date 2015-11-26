@@ -111,6 +111,72 @@ class Gateway extends AbstractGateway
     }
 
     /**
+     * Get the WebMoney ID.
+     *
+     * @return string WebMoney ID
+     */
+    public function getWebMoneyId()
+    {
+        return $this->getParameter('webMoneyId');
+    }
+
+    /**
+     * Set the WebMoney ID.
+     *
+     * @param string $value WebMoney ID
+     *
+     * @return self
+     */
+    public function setWebMoneyId($value)
+    {
+        return $this->setParameter('webMoneyId', $value);
+    }
+
+    /**
+     * Get the SSL file.
+     *
+     * @return string SSL file
+     */
+    public function getSslFile()
+    {
+        return $this->getParameter('sslFile');
+    }
+
+    /**
+     * Set the SSL file.
+     *
+     * @param string $value SSL file
+     *
+     * @return self
+     */
+    public function setSslFile($value)
+    {
+        return $this->setParameter('sslFile', $value);
+    }
+
+    /**
+     * Get the SSL key.
+     *
+     * @return string SSL key
+     */
+    public function getSslKey()
+    {
+        return $this->getParameter('sslKey');
+    }
+
+    /**
+     * Set the SSL key.
+     *
+     * @param string $value SSL key
+     *
+     * @return self
+     */
+    public function setSslKey($value)
+    {
+        return $this->setParameter('sslKey', $value);
+    }
+
+    /**
      * @param array $parameters
      *
      * @return \Omnipay\WebMoney\Message\PurchaseRequest
