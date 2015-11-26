@@ -1,4 +1,14 @@
 <?php
+
+/*
+ * WebMoney driver for the Omnipay PHP payment processing library
+ *
+ * @link      https://github.com/hiqdev/omnipay-webmoney
+ * @package   omnipay-webmoney
+ * @license   MIT
+ * @copyright Copyright (c) 2015, HiQDev (http://hiqdev.com/)
+ */
+
 namespace Omnipay\WebMoney\Message;
 
 use Omnipay\Tests\TestCase;
@@ -12,7 +22,7 @@ class PurchaseResponseTest extends TestCase
         parent::setUp();
 
         $this->request = new PurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
-        $this->request->initialize(array(
+        $this->request->initialize([
             'merchantPurse' => 'Z123428476799',
             'secretKey' => '226778888',
             'returnUrl' => 'https://www.foodstore.com/success',
@@ -22,8 +32,8 @@ class PurchaseResponseTest extends TestCase
             'transactionId' => '1234567890',
             'amount' => '14.65',
             'currency' => 'USD',
-            'testMode' => true
-        ));
+            'testMode' => true,
+        ]);
     }
 
     public function testSuccess()
@@ -36,7 +46,7 @@ class PurchaseResponseTest extends TestCase
         $this->assertNull($response->getMessage());
         $this->assertSame('POST', $response->getRedirectMethod());
         $this->assertSame('https://merchant.wmtransfer.com/lmi/payment.asp', $response->getRedirectUrl());
-        $this->assertSame(array(
+        $this->assertSame([
             'LMI_PAYEE_PURSE' => 'Z123428476799',
             'LMI_PAYMENT_AMOUNT' => '14.65',
             'LMI_PAYMENT_NO' => '1234567890',
@@ -46,7 +56,7 @@ class PurchaseResponseTest extends TestCase
             'LMI_SUCCESS_URL' => 'https://www.foodstore.com/success',
             'LMI_SUCCESS_METHOD' => '0',
             'LMI_FAIL_URL' => 'https://www.foodstore.com/failure',
-            'LMI_FAIL_METHOD' => '0'
-        ), $response->getRedirectData());
+            'LMI_FAIL_METHOD' => '0',
+        ], $response->getRedirectData());
     }
 }

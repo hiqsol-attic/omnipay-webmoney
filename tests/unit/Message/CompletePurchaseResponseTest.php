@@ -1,4 +1,14 @@
 <?php
+
+/*
+ * WebMoney driver for the Omnipay PHP payment processing library
+ *
+ * @link      https://github.com/hiqdev/omnipay-webmoney
+ * @package   omnipay-webmoney
+ * @license   MIT
+ * @copyright Copyright (c) 2015, HiQDev (http://hiqdev.com/)
+ */
+
 namespace Omnipay\WebMoney\Message;
 
 use Omnipay\Tests\TestCase;
@@ -12,17 +22,17 @@ class CompletePurchaseResponseTest extends TestCase
         parent::setUp();
 
         $this->request = new CompletePurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
-        $this->request->initialize(array(
+        $this->request->initialize([
             'merchantPurse' => 'Z123428476799',
             'secretKey' => '226778888',
-            'testMode' => true
-        ));
+            'testMode' => true,
+        ]);
     }
 
     public function testException()
     {
         try {
-            new CompletePurchaseResponse($this->request, array(
+            new CompletePurchaseResponse($this->request, [
                 'LMI_MODE' => '1',
                 'LMI_PAYMENT_AMOUNT' => '14.65',
                 'LMI_PAYEE_PURSE' => 'Z123428476799',
@@ -37,14 +47,14 @@ class CompletePurchaseResponseTest extends TestCase
                 'LMI_HASH' => '0B12E75431284D6FCC05D8AF02B90AC28A0788FB95C9FF6B655344022F0746E1',
                 'LMI_PAYMENT_DESC' => 'Test',
                 'LMI_LANG' => 'en-US',
-                'LMI_DBLCHK' => 'SMS'
-            ));
+                'LMI_DBLCHK' => 'SMS',
+            ]);
         } catch (\Exception $e) {
             $this->assertEquals('Omnipay\Common\Exception\InvalidResponseException', get_class($e));
         }
 
         try {
-            new CompletePurchaseResponse($this->request, array(
+            new CompletePurchaseResponse($this->request, [
                 'LMI_MODE' => '0',
                 'LMI_PAYMENT_AMOUNT' => '14.65',
                 'LMI_PAYEE_PURSE' => 'Z123428476799',
@@ -59,8 +69,8 @@ class CompletePurchaseResponseTest extends TestCase
                 'LMI_HASH' => '4F7D9FD1177DFDAE182F0E470296080DC47A843A32826147555F5C8959E7F6DD',
                 'LMI_PAYMENT_DESC' => 'Test',
                 'LMI_LANG' => 'en-US',
-                'LMI_DBLCHK' => 'SMS'
-            ));
+                'LMI_DBLCHK' => 'SMS',
+            ]);
         } catch (\Exception $e) {
             $this->assertEquals('Omnipay\Common\Exception\InvalidResponseException', get_class($e));
         }
@@ -68,7 +78,7 @@ class CompletePurchaseResponseTest extends TestCase
 
     public function testSuccess()
     {
-        $response = new CompletePurchaseResponse($this->request, array(
+        $response = new CompletePurchaseResponse($this->request, [
             'LMI_MODE' => '1',
             'LMI_PAYMENT_AMOUNT' => '14.65',
             'LMI_PAYEE_PURSE' => 'Z123428476799',
@@ -83,8 +93,8 @@ class CompletePurchaseResponseTest extends TestCase
             'LMI_HASH' => '0B12E75431284D6FCC05D8AF02B90AC28A0788FB95C9FF6B655344022F0746E5',
             'LMI_PAYMENT_DESC' => 'Test',
             'LMI_LANG' => 'en-US',
-            'LMI_DBLCHK' => 'SMS'
-        ));
+            'LMI_DBLCHK' => 'SMS',
+        ]);
 
         $this->assertTrue($response->isSuccessful());
         $this->assertNull($response->getCode());
@@ -100,7 +110,7 @@ class CompletePurchaseResponseTest extends TestCase
 
     public function testSha256Hash()
     {
-        $response = new CompletePurchaseResponse($this->request, array(
+        $response = new CompletePurchaseResponse($this->request, [
             'LMI_MODE' => '1',
             'LMI_PAYMENT_AMOUNT' => '14.65',
             'LMI_PAYEE_PURSE' => 'Z123428476799',
@@ -115,8 +125,8 @@ class CompletePurchaseResponseTest extends TestCase
             'LMI_HASH' => '0B12E75431284D6FCC05D8AF02B90AC28A0788FB95C9FF6B655344022F0746E5',
             'LMI_PAYMENT_DESC' => 'Test',
             'LMI_LANG' => 'en-US',
-            'LMI_DBLCHK' => 'SMS'
-        ));
+            'LMI_DBLCHK' => 'SMS',
+        ]);
 
         $this->assertTrue($response->isSuccessful());
         $this->assertNull($response->getCode());
@@ -133,7 +143,7 @@ class CompletePurchaseResponseTest extends TestCase
 
     public function testMd5Hash()
     {
-        $response = new CompletePurchaseResponse($this->request, array(
+        $response = new CompletePurchaseResponse($this->request, [
             'LMI_MODE' => '1',
             'LMI_PAYMENT_AMOUNT' => '14.65',
             'LMI_PAYEE_PURSE' => 'Z123428476799',
@@ -148,8 +158,8 @@ class CompletePurchaseResponseTest extends TestCase
             'LMI_HASH' => '1D3FFAFA982B134479C4AD1AE2CABB5C',
             'LMI_PAYMENT_DESC' => 'Test',
             'LMI_LANG' => 'en-US',
-            'LMI_DBLCHK' => 'SMS'
-        ));
+            'LMI_DBLCHK' => 'SMS',
+        ]);
 
         $this->assertTrue($response->isSuccessful());
         $this->assertNull($response->getCode());
@@ -167,8 +177,7 @@ class CompletePurchaseResponseTest extends TestCase
     public function testSignHash()
     {
         try {
-
-            new CompletePurchaseResponse($this->request, array(
+            new CompletePurchaseResponse($this->request, [
                 'LMI_MODE' => '1',
                 'LMI_PAYMENT_AMOUNT' => '14.65',
                 'LMI_PAYEE_PURSE' => 'Z123428476799',
@@ -183,9 +192,8 @@ class CompletePurchaseResponseTest extends TestCase
                 'LMI_HASH' => '2E2A8871CBB577DE4AB3E47EBFA100EB8AD9C7AF6FB5580169B8273409863941BDA16647D2D2619D8FFF946D319FE35D758844214B02F46CBA7AE35AFE3F86940069',
                 'LMI_PAYMENT_DESC' => 'Test',
                 'LMI_LANG' => 'en-US',
-                'LMI_DBLCHK' => 'SMS'
-            ));
-
+                'LMI_DBLCHK' => 'SMS',
+            ]);
         } catch (\Exception $e) {
             $this->assertEquals('Omnipay\Common\Exception\InvalidResponseException', get_class($e));
         }
@@ -194,8 +202,7 @@ class CompletePurchaseResponseTest extends TestCase
     public function testInvalidHash()
     {
         try {
-
-            new CompletePurchaseResponse($this->request, array(
+            new CompletePurchaseResponse($this->request, [
                 'LMI_MODE' => '1',
                 'LMI_PAYMENT_AMOUNT' => '14.65',
                 'LMI_PAYEE_PURSE' => 'Z123428476799',
@@ -210,9 +217,8 @@ class CompletePurchaseResponseTest extends TestCase
                 'LMI_HASH' => 'ABD',
                 'LMI_PAYMENT_DESC' => 'Test',
                 'LMI_LANG' => 'en-US',
-                'LMI_DBLCHK' => 'SMS'
-            ));
-
+                'LMI_DBLCHK' => 'SMS',
+            ]);
         } catch (\Exception $e) {
             $this->assertEquals('Omnipay\Common\Exception\InvalidResponseException', get_class($e));
         }

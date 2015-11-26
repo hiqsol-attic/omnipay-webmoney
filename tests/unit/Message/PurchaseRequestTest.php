@@ -1,4 +1,14 @@
 <?php
+
+/*
+ * WebMoney driver for the Omnipay PHP payment processing library
+ *
+ * @link      https://github.com/hiqdev/omnipay-webmoney
+ * @package   omnipay-webmoney
+ * @license   MIT
+ * @copyright Copyright (c) 2015, HiQDev (http://hiqdev.com/)
+ */
+
 namespace Omnipay\WebMoney\Message;
 
 use Omnipay\Tests\TestCase;
@@ -12,7 +22,7 @@ class PurchaseRequestTest extends TestCase
         parent::setUp();
 
         $this->request = new PurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
-        $this->request->initialize(array(
+        $this->request->initialize([
             'merchantPurse' => 'Z123428476799',
             'secretKey' => '226778888',
             'returnUrl' => 'https://www.foodstore.com/success',
@@ -22,8 +32,8 @@ class PurchaseRequestTest extends TestCase
             'transactionId' => '1234567890',
             'amount' => '14.65',
             'currency' => 'USD',
-            'testMode' => true
-        ));
+            'testMode' => true,
+        ]);
     }
 
     public function testException()

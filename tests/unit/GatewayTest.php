@@ -1,4 +1,14 @@
 <?php
+
+/*
+ * WebMoney driver for the Omnipay PHP payment processing library
+ *
+ * @link      https://github.com/hiqdev/omnipay-webmoney
+ * @package   omnipay-webmoney
+ * @license   MIT
+ * @copyright Copyright (c) 2015, HiQDev (http://hiqdev.com/)
+ */
+
 namespace Omnipay\WebMoney;
 
 use Omnipay\Tests\GatewayTestCase;
@@ -42,11 +52,10 @@ class GatewayTest extends GatewayTestCase
 
     public function testPurchase()
     {
-        $request = $this->gateway->purchase(array(
+        $request = $this->gateway->purchase([
             'transactionId' => $this->transactionId,
-        ));
+        ]);
 
         $this->assertSame($this->transactionId, $request->getTransactionId());
     }
-
 }
